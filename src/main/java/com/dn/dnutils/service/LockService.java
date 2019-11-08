@@ -40,7 +40,8 @@ public class LockService {
     }
 
     public boolean isLock() {
-        redisTemplate.getConnectionFactory().getConnection().time();
+        Long time = redisTemplate.getConnectionFactory().getConnection().time();
+        System.out.println(time);
         return redisTemplate.hasKey(this.key);
     }
 
